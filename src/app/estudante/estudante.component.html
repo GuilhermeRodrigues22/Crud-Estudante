@@ -1,0 +1,22 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Email</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Idade</th>
+      <th scope="col">Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let estudante ">
+      <th scope="row">{{estudante.id}}</th>
+      <td>{{estudante.name}}</td>
+      <td>{{estudante.email}}</td>
+      <td>{{estudante.Telefone}}</td>
+      <td>{{estudante.Idade}}</td>
+
+    </tr>
+  </tbody>
+</table>
