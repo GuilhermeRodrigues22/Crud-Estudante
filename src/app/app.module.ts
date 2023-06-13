@@ -4,8 +4,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EstudanteComponent } from './estudante/estudante.component';
 import { EstudanteFormComponent } from './estudante-form/estudante-form.component';
-import { FormBuilder } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,10 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgbModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

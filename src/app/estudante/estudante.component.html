@@ -10,13 +10,17 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let estudante ">
+    <tr *ngFor="let estudante of estudante">
       <th scope="row">{{estudante.id}}</th>
       <td>{{estudante.name}}</td>
       <td>{{estudante.email}}</td>
-      <td>{{estudante.Telefone}}</td>
-      <td>{{estudante.Idade}}</td>
-
+      <td>{{estudante.telefone}}</td>
+      <td>{{estudante.idade}}</td>
+      <td>
+        <button class="btn btn-primary" (click)="create()">Novo</button>
+        <button class="btn btn-warning me-1" (click)="editar(estudante)">Editar</button>
+        <button class="btn btn-info" (click)="deletar(estudante)">Excluir</button>
+      </td>
     </tr>
   </tbody>
 </table>

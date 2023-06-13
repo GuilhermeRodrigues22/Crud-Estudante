@@ -1,1 +1,29 @@
-<p>estudante-form works!</p>
+<div class="row">
+  <div class="col-8 m-auto">
+    <form [formGroup]="formGroupEstudante">
+      <div class="mb-3">
+        <div class="display-6 text-center">
+          Cadastro de Estudante
+        </div>
+        <label for="name" class="form-label">Nome:</label>
+        <input type="text" formControlName="name" class="form-control" id="name" placeholder="Insira seu Nome">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" formControlName="email" class="form-control" id="email" placeholder="Informe seu Email">
+      </div>
+      <div class="mb-3">
+        <label for="telefone" class="form-label">Telefone:</label>
+        <input type="number" formControlName="telefone" class="form-control" id="telefone" placeholder="Informe seu Telefone">
+      </div>
+      <div class="mb-3">
+        <label for="idade" class="form-label">Idade:</label>
+        <input type="number" formControlName="idade" class="form-control" id="idade" placeholder="Informe sua Idade">
+      </div>
+    </form>
+    <div class="mb-3 d-flex justify-content-end">
+      <button class="btn btn-primary" (click)="salvar()">Salvar</button>
+      <button class="btn btn-danger" (click)="cancelar()">Limpar</button>
+    </div>
+  </div>
+</div>
