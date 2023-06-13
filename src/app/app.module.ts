@@ -3,17 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EstudanteComponent } from './estudante/estudante.component';
-import { EstudanteFormComponent } from './estudante-form/estudante-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormEstudanteComponent } from './estudante-form/estudante-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EstudanteComponent,
-    EstudanteFormComponent
+    FormEstudanteComponent
   ],
   imports: [
     BrowserModule,

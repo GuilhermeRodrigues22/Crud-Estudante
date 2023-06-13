@@ -1,9 +1,6 @@
 import { EstudanteService } from './../estudante.service';
 import { Estudante } from './../estudante';
 import { Component, OnInit, EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-estudante',
@@ -12,12 +9,14 @@ import { Router } from '@angular/router';
 })
 export class EstudanteComponent implements OnInit {
   estudante: Estudante[] = [];
+  estudantes: Estudante = {} as Estudante;
   isEditing: boolean = false;
 
   constructor(
     private estudanteservice: EstudanteService,
-    private router: Router
-  ) {}
+  ) {
+
+  }
 
   ngOnInit(): void {
     this.loadEstudantes();
@@ -29,12 +28,37 @@ export class EstudanteComponent implements OnInit {
     });
   }
 
-  create() {
-    this.router.navigate(['createEstudante']);
+  onCleanEvent() {
+    this.isEditing = false;
   }
+
+  onSaveEvent(estudante: Estudante) {
+    if (this.isEditing) {
+      this.estudanteservice.update(estudante).subscribe({
+        next: () => {
+          this.loadEstudantes();
+          this.isEditing = true;
+        }
+      });
+    }
+    else {
+      this.estudanteservice.save(estudante).subscribe({
+        next: data => {
+          this.estudante.push(data)
+        }
+       });
+    }
+  }
+
+  clean(){
+    this.isEditing = false;
+  }
+
   editar(estudante: Estudante) {
-    this.router.navigate(['estudanteDetails', estudante.id]);
+    this.estudantes = estudante;
+    this.isEditing = true;
   }
+
   deletar(estudante: Estudante) {
     this.estudanteservice.delete(estudante).subscribe({
       next: () => this.loadEstudantes(),

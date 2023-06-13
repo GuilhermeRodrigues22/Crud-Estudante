@@ -1,3 +1,7 @@
+<app-estudante-form [estudante]="estudantes" (saveEvent)="onSaveEvent($event)"
+  (cleanEvent)=" onCleanEvent()"></app-estudante-form>
+
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -17,7 +21,6 @@
       <td>{{estudante.telefone}}</td>
       <td>{{estudante.idade}}</td>
       <td>
-        <button class="btn btn-primary" (click)="create()">Novo</button>
         <button class="btn btn-warning me-1" (click)="editar(estudante)">Editar</button>
         <button class="btn btn-info" (click)="deletar(estudante)">Excluir</button>
       </td>
